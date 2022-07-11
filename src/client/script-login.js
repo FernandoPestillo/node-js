@@ -1,6 +1,5 @@
 const inputs = document.querySelectorAll('.input');
 const button = document.querySelector('.login-button');
-const link = document.querySelector('.link');
 
 const handleFocus = ({ target }) => {
     const span = target.previousElementSibling;
@@ -15,21 +14,15 @@ const handleFocusOut = ({ target }) => {
     
 }
 const handleChange = () => {
-    const [username, password] = inputs;
+    const [firtsName, password] = inputs;
 
-    if (username.value && password.value.length >= 8){
+    if (firtsName.value && password.value.length >= 8){
         button.removeAttribute('disabled');
     } else{
         button.setAttribute('disabled', '');
     }
 }
-link.addEventListener('click', function(e) {
-    const name = document.getElementById('username');
 
-    const value = name.value;
-    console.log(value);
-    sessionStorage.setItem(value, 1);
-})
 
 
 

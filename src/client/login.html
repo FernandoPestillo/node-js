@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style-login.css">
     <script type="text/javascript" src="script-login.js" defer></script>
+    <script type="text/javascript" src="/Users/fernandopestillo/Desktop/JavaScript - TESTES/node js/modules/express.js" defer></script>
     <title> Tela de Login</title>
 </head>
 
@@ -13,16 +14,17 @@
                 <img src="../images/logo.png" class="login-icon">
 
                 <h1 class="login-tittle"> Fazer login</h1>
+                <form id="login-form"  method="POST">
+                    <label class="login-label"> 
+                        <span> Nome de Usuário</span>
+                        <input type="text" name="firstName" class="input" id="firstName">
+                    </label>
 
-                <label class="login-label"> 
-                    <span> nome de usuario</span>
-                    <input type="text" name="username" class="input" id="username">
-                </label>
-
-                <label class="login-label"> 
-                    <span> senha</span>
-                    <input type="password" name="password" class="input" id="password">
-                </label>
+                    <label class="login-label"> 
+                        <span> Senha</span>
+                        <input type="password" name="password" class="input" id="password">
+                    </label>
+                </form>
 
                 <div class="login-icons">
                     <button type="button" class="button-icon">
@@ -40,13 +42,13 @@
 
                 <label class="label-checkbox">
                     <input type="checkbox" class="checkbox"> 
-                    Continuar logado
+                    <p> Continuar logado</p>
                 </label>
             </div>
 
             <div class="wrapper">
                 <a class="link">
-                    <button type="submit" class="login-button" disabled>
+                    <button type="submit" form="login-form" class="login-button" disabled>
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 31.143 31.143">
                             <g>
                                 <g id="c100_arrow">
