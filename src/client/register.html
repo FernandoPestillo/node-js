@@ -3,8 +3,9 @@
     <meta charset="UTF-8" />
     <link rel="shortcut icon" href="images/valorant-icon.webp" type="image/webp" />
     <link rel="stylesheet" href="style-login.css">
-    <script type="text/javascript" src="script-login.js" defer></script>
-    <title> Tela de Login</title>
+    <script type="text/javascript" src="script-register.js" defer></script>
+    <script type="text/javascript" src="/Users/fernandopestillo/Desktop/JavaScript - TESTES/node js/modules/express.js" defer></script>
+    <title> Faça seu Cadastro</title>
 </head>
 
 <body>
@@ -13,17 +14,29 @@
             <div class="wrapper">
                 <img src="../images/logo.png" class="login-icon">
 
-                <h1 class="login-tittle"> Fazer login</h1>
-                <form id="login-form" action="/user" method="POST">
+                <h1 class="login-tittle"> Registrar Usuario</h1>
+                <form id="login-form" action="/users" method="POST">
                     <label class="login-label"> 
                         <span> Nome de Usuário</span>
                         <input type="text" name="firstName" class="input" id="firstName">
                     </label>
 
                     <label class="login-label"> 
+                        <span> Email</span>
+                        <input type="email" name="email" class="input" id="email">
+                    </label>
+
+                    <label class="login-label"> 
                         <span> Senha</span>
                         <input type="password" name="password" class="input" id="password">
                     </label>
+
+                    <label class="login-label"> 
+                        <span> Confirmar Senha</span>
+                        <input type="password" name="confirmPassword" class="input" id="confirmPassword">
+                    </label>
+
+                    
                 </form>
 
                 <div class="login-icons">
@@ -40,10 +53,7 @@
                     </button>
                 </div>
 
-                <label class="label-checkbox">
-                    <input type="checkbox" class="checkbox"> 
-                    <p> Continuar logado</p>
-                </label>
+                
             </div>
 
             <div class="wrapper">
@@ -61,13 +71,15 @@
                         </svg>
                     </button>
                 </a>
-                <a href="/register" class="login-links" method="get"> criar conta</a>
+                
+                <a href="/" class="login-links" method="get"> Fazer Login</a>
+
             </div>
 
             
         </section>
 
-        <section class="wallpaper">
+        <section class="wallpaper" style="background-image: url(images/registro.jpeg)">
             
         </section>
     </main>

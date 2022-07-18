@@ -3,13 +3,10 @@ const session = require('express-session');
 const UserModel = require('../src/models/user.models');
 var path = require('path');
 const bodyParser = require('body-parser');
-const { find } = require("../src/models/user.models");
 //const inputs = require("../src/client/script-login");
 
 const app = express();
 
-var firstName = 'Fernando';
-var password = '12345678';
 
 app.use(express.json());
 
@@ -21,37 +18,44 @@ app.use(express.static('./src/client'));
 app.set('views', path.join(__dirname, '../src/client'));
 
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+    const users = await UserModel.find({});
+
     if(req.session.firstName){
-        res.render('logado');
-    }else{
-        res.render('login');
-    }
-});
-// FAZER LOGIN
-app.post('/', (req, res) => {
-    
-    if(req.body.firstName == firstName && req.body.password == password){
-        req.session.firstName = firstName;
 
         res.render('logado');
     }else{
         res.render('login');
     }
 });
-
-// CRIAR USUARIO
-/* app.post('/', (req, res) => {
+app.get('/register', (req, res) => {
+    res.render('register');
+});
+// CRIAR USUÁRIO (FUNCIONANDO)
+app.post('/users', async (req, res) => {
     console.log(req.body);
-    res.render('login');
     try {
         const user = UserModel.create(req.body);
 
-        res.status(201).json(user);
+        res.status(201).render('login');
     } catch (error) {
         res.status(500).send(error.message);
     }
-}); */
+
+});
+
+// LOGAR
+app.post('/user', async (req,res) => {
+    const { firstName, password } = req.body;
+
+    const userExists = await UserModel.findOne({ firstName: firstName, password: password});
+
+    if (!userExists) {
+        return res.status(422).json('Usuário não existe!');
+    } else {
+        res.render('user');
+    }
+});
 
 
 app.get('/users', async (req,res) => {
@@ -98,11 +102,11 @@ app.patch('/users/:id', async (req,res) => {
     }
 });
 
-app.delete('/users/:id', async (req,res) => {
+app.delete('/users/:password', async (req,res) => {
     try {
-        const id = req.params.id;
+        const password = req.params.password;
 
-        const user = await UserModel.findByIdAndRemove(id);
+        const user = await UserModel.findOneAndDelete({ password: '11111111' });
 
         res.status(200).json(user);
     } catch (error) {
@@ -113,4 +117,4 @@ app.delete('/users/:id', async (req,res) => {
 
 const port = 2222;
 
-app.listen(port, () => console.log(`Rodando com express na porta ${port}!`));
+app.listen(port, '192.168.1.164', () => console.log(`Rodando com express na porta ${port}!`));

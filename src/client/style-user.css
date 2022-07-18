@@ -1,0 +1,116 @@
+@import url('http://fonts.cdnfonts.com/css/valorant');
+html{
+    background-color: var(--dark-blue);
+}
+main{
+    display: flex;
+}
+:root{
+    --white-background: #ece8e1;
+    --dark-blue: rgb(16, 23, 30);
+    --red: rgb(198, 13, 13);
+}
+.sidebar{
+    background-color: rgb(16, 23, 30);
+    max-width: 300px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.8px solid black;
+    justify-content:space-between;
+}
+.logo-items{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+}
+.icon{
+    width: 50px;
+    height: 50px;
+}
+.tittle{
+    font-family: 'VALORANT', sans-serif;
+    color: whitesmoke;
+    font-size: 1.5em;
+    padding: 15px 10px 0px;
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgb(255, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: default;
+}
+.linha{
+    font-size: 1em;
+    background-image: -webkit-linear-gradient(60deg, rgb(214, 194, 18), rgb(226, 11, 11));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    cursor: default;
+}
+.abas{
+    margin-top: 5px;
+}
+
+.abas a{
+    text-decoration: none;
+    display:flex;
+    align-items: center;
+    margin: 12px 5px;
+    border-radius: 6px;
+    padding: 4px;
+}
+.abas a:hover{
+    background-color: #535b61;
+}
+span{
+    font-size: 1.2em;
+    background: rgb(198, 13, 13);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 6px;
+    font-family: open sans;
+}
+svg{
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px;
+}
+.logoff{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logoff a{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 8px;
+    margin: 30px 8px;
+    padding: 2px;
+}
+.logoff a:hover{
+    background-color: #535b61;
+}
+.cor {
+    /* gradient and fallback color */
+    fill: url(#my-cool-gradient);
+  }
+
+.content{
+    width: 100%;
+    height: 100vh;
+    font-family: 'VALORANT', sans-serif;
+    background-color: var(--dark-blue);
+    color: var(--white-background);
+    border-left: 2px solid var(--white-background);
+}
+p{
+    text-align: right;
+    margin: 12px;
+    font-size: 2em;
+}
