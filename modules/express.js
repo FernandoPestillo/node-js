@@ -3,7 +3,7 @@ const session = require('express-session');
 const UserModel = require('../src/models/user.models');
 var path = require('path');
 const bodyParser = require('body-parser');
-//const inputs = require("../src/client/script-login");
+
 
 const app = express();
 
@@ -53,7 +53,7 @@ app.post('/user', async (req,res) => {
     if (!userExists) {
         return res.status(422).json('Usuário não existe!');
     } else {
-        res.render('user');
+        res.render('user', {userExists});
     }
 });
 
