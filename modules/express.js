@@ -34,13 +34,26 @@ app.get('/register', (req, res) => {
 // CRIAR USUÁRIO (FUNCIONANDO)
 app.post('/users', async (req, res) => {
     console.log(req.body);
+    const { firstName, email, password } = req.body;
+    const userExists = await UserModel.findOne({ firstName: firstName});
+    
     try {
-        const user = UserModel.create(req.body);
+        if (!userExists){
+            const user = UserModel.create(req.body);
+        
+            res.status(201).render('register');
 
-        res.status(201).render('login');
+        } else {
+            res.json('Esse usuário já existe, tente outro!');
+
+        }
+        
+        
+        
     } catch (error) {
-        res.status(500).send(error.message);
-    }
+        return res.status(500).send(error.message);
+    } 
+    
 
 });
 
