@@ -130,4 +130,4 @@ app.delete('/users/:password', async (req,res) => {
 
 const port = 2222;
 
-app.listen(port, '192.168.1.164', () => console.log(`Rodando com express na porta ${port}!`));
+app.listen(port, () => console.log(`Rodando com express na porta ${port}!`));
